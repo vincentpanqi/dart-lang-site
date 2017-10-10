@@ -1,0 +1,63 @@
+- title: 语言
+  children:
+    - title: "概述"
+      permalink: /guides/language
+    - title: "Tour"
+      permalink: /guides/language/language-tour
+    - title: "Effective Dart"
+      permalink: /guides/language/effective-dart
+      children:
+        - title: 风格
+          permalink: /guides/language/effective-dart/style
+        - title: 文档
+          permalink: /guides/language/effective-dart/documentation
+        - title: 用法
+          permalink: /guides/language/effective-dart/usage
+        - title: 设计
+          permalink: /guides/language/effective-dart/design
+    - title: 示例代码
+      permalink: /samples
+
+- title: 库
+  children:
+    - title: 概述
+      permalink: /guides/libraries
+    - title: Tour
+      permalink: /guides/libraries/library-tour
+
+- title: "平台"
+  children:
+    - title: "概述"
+      permalink: /guides/platforms
+    - title: "Web"
+      permalink: https://webdev.dartlang.org/
+    - title: "Mobile (Flutter)"
+      permalink: https://flutter.io/
+      children:
+      - title: "API 参考"
+        permalink: http://docs.flutter.io/flutter/
+    - title: "Dart VM"
+      permalink: /dart-vm
+      children:
+      - title: "安装 Dart"
+        permalink: /install
+      - title: "API 参考"
+        permalink: https://api.dartlang.org
+
+- title: "测试"
+  children:
+  - title: "Dart 测试"
+    permalink: /guides/testing
+
+- title: "资源"
+  children:
+  - title: "Codelabs"
+    permalink: /codelabs
+  - title: "教程"
+    permalink: /tutorials
+  - title: "文章"
+    permalink: /articles
+  - title: "Dart 工具"
+    permalink: /tools
+  - title: "社区与支持"
+    permalink: /community

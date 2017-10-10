@@ -1,0 +1,156 @@
+---
+layout: homepage
+title: "Dart 编程语言"
+description: "Dart 是一门易于学习、易于扩展和可随处部署的编程语言。"
+---
+<section id="code-sample">
+<div class="container">
+  {% comment %}
+  <div class="row banner__frontpage-row">
+    <div class="col-sm-12">
+      <div class="content">
+        {% include banner-fp.html %}
+      </div>
+    </div>
+  </div>
+  {% endcomment %}
+  <div class="row">
+    <div class="col-sm-7 col-lg-6">
+      <div class="content">
+        <a href="https://dartpad.dartlang.org/fb763a4a770b5cdd896982e10ccf4118" class='codesample__open-in-dartpad no-automatic-external' target='_blank'>Open in DartPad</a>
+<pre class="prettyprint">
+<span class="frontpage-highlight" data-text="Dart has one canonical way to import libraries, and one canonical (and easy) way to install library packages.">import</span> &#x27;dart:async&#x27;;
+import &#x27;<span class="frontpage-highlight" data-text='The whole standard library is meticulously maintained. It has been called “well-crafted” by none other than Erik Meijer.'>dart:math</span>&#x27; show Random;
+
+<span class="frontpage-highlight" data-text="The main() function is the single point of entry.">main()</span> async {
+  print(&#x27;Compute <span class="frontpage-highlight" data-text="Unicode support is baked in.">&#x3C0;</span> using the Monte Carlo method.&#x27;);
+  <span class="frontpage-highlight" data-text="Language-level asynchrony support makes you more productive when dealing with deeply asynchronous code (like most UI code, for example).">await</span> for (var estimate in computePi().take(500)) {
+    print(&#x27;&#x3C0; &#x2245; <span class="frontpage-highlight" data-text="String interpolation is easy. Just put ${expression} or $variable in your string literal.">$estimate</span>&#x27;);
+  }
+}
+
+<span class="frontpage-highlight" data-text="Add doc comments like this to flesh out the API reference docs that the SDK’s dartdoc tool generates.">///</span> Generates a stream of increasingly accurate estimates of &#x3C0;.
+Stream<span class="frontpage-highlight" data-text="Generics are optional but extremely useful in large codebases.">&#x3C;double&#x3E;</span> computePi(<span class="frontpage-highlight" data-text="Named parameters make call sites more readable.">{int batch: 1000000}</span>) <span class="frontpage-highlight" data-text="Dart has language-level support for asynchronous generators.">async*</span> {
+  <span class="frontpage-highlight" data-text="The type is inferred in this variable declaration. Note: no JavaScript-style hoisting.">var</span> total = 0;
+  var count = 0;
+  <span class="frontpage-highlight" data-text="Because generators are lazy, we can safely do this.">while (true)</span> {
+    var points = generateRandom().<span class="frontpage-highlight" data-text="Synchronous generators produce (lazy) Iterables, and Iterables have a well-crafted API.">take</span>(batch);
+    var inside = points.where((p) <span class="frontpage-highlight" data-text="The optional arrow syntax makes simple functions more readable.">=&#x3E;</span> p.isInsideUnitCircle);
+    total += batch;
+    count += inside.<span class="frontpage-highlight" data-text="Since the Iterable is lazy, the program doesn’t actually iterate over it until it’s needed by the length getter. No new array will be constructed.">length</span>;
+    var ratio = count / total;
+    // Area of a circle is A = &#x3C0;&#x22C5;r&#xB2;, therefore &#x3C0; = A/r&#xB2;.
+    // So, when given random points with x &#x2208; &#x3C;0,1&#x3E;,
+    // y &#x2208; &#x3C;0,1&#x3E;, the ratio of those inside a unit circle
+    // should approach &#x3C0; / 4. Therefore, the value of &#x3C0;
+    // should be:
+    <span class="frontpage-highlight" data-text="In an async generator, yield takes care of sending the values through the stream (including the logic of suspending execution when needed).">yield</span> ratio * 4;
+  }
+}
+
+<span class="frontpage-highlight" data-text="Iterable is a core type extended by all iterable collections, which makes for some elegant Dart code.">Iterable</span>&#x3C;Point&#x3E; generateRandom(<span class="frontpage-highlight" data-text="Optional parameters make call sites cleaner.">[int seed]</span>) <span class="frontpage-highlight" data-text="Dart has language-level support for synchronous generators, too.">sync*</span> {
+  <span class="frontpage-highlight" data-text="Variables and fields can be final. Any attempt to change them later in the code will produce a static error.">final</span> random = new Random(seed);
+  while (true) {
+    <span class="frontpage-highlight" data-text="Producing lazy Iterables through yield is readable and corresponds nicely with the same concept in asynchronous generators.">yield</span> new Point(random.nextDouble(), random.nextDouble());
+  }
+}
+
+<span class="frontpage-highlight" data-text="Dart is purely object-oriented and class-based, with mixin-based inheritance.">class</span> Point {
+  final <span class="frontpage-highlight" data-text="Although Dart can compile to JavaScript, it doesn’t lack the distinction between double and int.">double</span> x, y;
+  <span class="frontpage-highlight" data-text="Constructors can be constant.">const</span> Point(<span class="frontpage-highlight" data-text="Initializing fields through this shorthand syntax is both easier and more readable.">this.x</span>, this.y);
+  bool <span class="frontpage-highlight" data-text="Language-level support for getters means you can freely switch between properties and methods without changing the API.">get</span> isInsideUnitCircle =&#x3E; x * x + y * y &#x3C;= 1;
+}
+</pre>
+      </div>
+    </div>
+    <div class="col-sm-5 col-lg-6">
+      <div class="content">
+        <div class="frontpage-slogan-with-footnotes">
+          <div class="frontpage-slogan">
+            <h3>
+              Dart is an
+              <span class="frontpage-highlight" data-text="Dart is focused on client-side programming, be it in the browser or on mobile.">application</span> programming
+              <span class="frontpage-highlight" data-text="But it’s not just a language. Dart comes with well-crafted core libraries, a package manager, static analysis tools, and more.">language</span> that’s
+              <span class="frontpage-highlight" data-text="The syntax feels familiar, and the semantics are clean and consistent. No nasty surprises.">easy to learn</span>,
+              <span class="frontpage-highlight" data-text="Google alone has over 2 million lines of production Dart code. Apps can reach hundreds of thousands of lines of code.">easy to scale</span>, and deployable
+              <span class="frontpage-highlight" data-text="Dart runs fast in every modern browser, on the command line, on servers, and on mobile.">everywhere</span>.
+            </h3>
+            <h3>
+              Google depends on Dart to make
+              <span class="frontpage-highlight" data-text="For example, the next generation of AdWords (Google’s foremost money-making app) runs on Dart.">very large apps</span>.
+            </h3>
+            <p><a href="/guides/get-started" class="frontpage-slogan__get-started btn btn-default btn-lg">Get Started</a> <a href="/install" class="btn btn-lg">Install Dart</a></p>
+          <div id="code-display">
+            <p>[&nbsp;Click underlined text or code to learn more.&nbsp;]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="chip-grid-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="content">
+          <div class="chip-grid">
+            <a href="http://news.dartlang.org/" class="chip no-automatic-external">
+              <h3>资讯</h3>
+              <p>关注最新资讯。</p>
+            </a>
+            <a href="https://api.dartlang.org/" class="chip no-automatic-external">
+              <h3>API</h3>
+              <p>浏览核心类库。</p>
+            </a>
+            <a href="https://pub.dartlang.org/" class="chip no-automatic-external">
+              <h3>Pub</h3>
+              <p>寻找 package。</p>
+            </a>
+            <a href="{{site.webdev}}" class="chip no-automatic-external">
+              <h3>Dart webdev</h3>
+              <p>构建浏览器应用。</p>
+            </a>
+            <a href="https://flutter.io/" class="chip no-automatic-external">
+              <h3>Flutter</h3>
+              <p>构建移动应用。</p>
+            </a>
+            <a href="/dart-vm" class="chip no-automatic-external">
+              <h3>Dart VM</h3>
+              <p>构建脚本、服务器。</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 col-lg-4">
+        <div class="content">
+          <h1>Core goals</h1>
+          <p class="lead">
+            Dart is an ambitious, long-term project. These are the core goals that drive our design decisions.
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-7 col-lg-8">
+        <div class="content">
+          <h2 class="core-goals__first">Provide a solid foundation of libraries and tools</h2>
+          <p>A programming language is nothing without its core libraries and tools. Dart’s have been powering very large apps for years now.</p>
+          <h2>Make common programming tasks easy</h2>
+          <p>Application programming comes with a set of common problems and common errors. Dart is designed to make those problems easier to tackle, and errors easier to catch. This is why we have <code>async/await</code>, generators, string interpolation, earlier error detection and much more.</p>
+          <h2>Don’t surprise the programmer</h2>
+          <p>There should be a direct correspondence between what you type and what’s going to happen. Magic (automatic type coercion, hoisting, “helper” globals, &hellip;) doesn’t mix well with large apps.</p>
+          <h2>Be the stable, pragmatic solution for real apps</h2>
+          <p>Dart might seem boring to some. We prefer the terms <em>productive</em> and <em>stable</em>. We work closely with our core customers&mdash;the developers who build large applications with Dart&mdash;to make sure we’re here for the long run.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
